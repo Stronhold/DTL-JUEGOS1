@@ -4,16 +4,19 @@ Para gestionar las piezas del juego, así como los niveles, vamos a usar los sig
 
 ## Piezas ##
 
-Los objetos JSON para las piezas tendrán 5 atributos, la ID, el norte, este, sur y oeste, de la siguiente manera:
+Los objetos JSON para las piezas tendrán 8 atributos, la ID, las coordenadas en el sprite, el norte, este, sur y oeste, y finalmente la lógica de la pieza, de la siguiente manera:
 
 	{
 		id: "",
+		cx: 0,
+		cy: 0,
 		n: 0,
 		e: 0,
 		s: 0,
-		w: 0
+		w: 0,
+		l: {}
 	}
-La ID será cualquier string, mientras que las posibilidades para el resto serán un entero de 0 a 3, que significan lo siguiente, en binario:
+La ID será cualquier string, las coordenadas x/y indicarán la posición de la imagen en el sprite, y la lógica será un objeto JSON por definir, mientras que las posibilidades para el resto serán un entero de 0 a 3, que significan lo siguiente, en binario:
 
 * 00 -> cerrado
 * 01 -> entrada
