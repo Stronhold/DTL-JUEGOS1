@@ -1,4 +1,4 @@
-# Formatos de archivo - Versión 1.0 #
+# Formatos de archivo - Versión 1.1 #
 
 Para gestionar las piezas del juego, así como los niveles, vamos a usar los siguientes objetos JSON:
 
