@@ -1,0 +1,19 @@
+body {
+	font-family: Helvetica, Arial, san-serif;+
+}
+
+section#grid-container {
+	width: 750px;
+	margin-right: 10px;
+	float: left;
+}
+
+section#pipes-container {
+	width: 100px;
+	margin-right: 50px;
+	float: left;
+}
+
+button#save-level, input#level-name {
+	float: right;
+}
