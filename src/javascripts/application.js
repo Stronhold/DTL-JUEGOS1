@@ -17,6 +17,9 @@ var canvasHeight = gridHeight + 1;
 var grid = null;
 var currentButton = null;
 
+var tileset = new Image();
+tileset.src = "res/tileset.png";
+
 $(document).ready(function() {
 	canvas = document.getElementById('grid');
 	context = canvas.getContext('2d');

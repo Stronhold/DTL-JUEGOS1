@@ -4,23 +4,22 @@ var SPipe = function() {
 	this.column = 0;
 	this.type = "Straight";
 	this.rotation = 0;
+	this.img = new Image();
+
+	this.img.onload = function(){
+	};
+
+	this.img.src = "res/tileset.png";
     
 }
 
 SPipe.prototype.draw = function(context) {
 
-	//context.save();
+	context.save();
 
-	//context.translate(this.column * PIPE_SIZE, this.row * PIPE_SIZE);
-	//context.fillColor = 0;
-	//context.fillRect(0, 0, PIPE_SIZE, PIPE_SIZE);
-	//var img = new Image();
-	//img.onload = function() {
-	//	context.drawImage(img, 0, 0, PIPE_SIZE, PIPE_SIZE);
-	//}
-	//img.src = 'res/tuberiaRecta.png';
-	
+	context.translate(this.column * PIPE_SIZE, this.row * PIPE_SIZE);
+	context.drawImage(this.img, 0, 0, 165, 165, 0, 0, PIPE_SIZE, PIPE_SIZE);
 
-	//context.restore();
+	context.restore();
 
 }
