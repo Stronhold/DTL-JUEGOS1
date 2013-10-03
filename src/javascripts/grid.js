@@ -29,6 +29,10 @@ Grid.prototype.drawGrid = function(context) {
   context.stroke();
 }
 
+Grid.prototype.clear = function() {
+  this.bricks = [];
+}
+
 Grid.prototype.draw = function(context) {
 
   this.drawGrid(context);
@@ -42,4 +46,14 @@ Grid.prototype.addPipe = function(pipe, context) {
   this.pipes.push(pipe);
 
   pipe.draw(context);
+}
+
+Grid.prototype.getPipeAt = function(column, row) {
+  for (var i = 0; i < this.pipes.length; i++) {
+    if (this.pipes[i].column === column && this.pipes[i].row === row) {
+      return this.pipes[i];
+    }
+  }
+
+  return null;
 }

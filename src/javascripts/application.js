@@ -31,6 +31,20 @@ $(document).ready(function() {
 
 function initUI() {
 	$(canvas).click(onGridClicked);
+
+	$("#pipes-container button").click(function(event) {
+    	event.preventDefault();
+
+    	var id = $(this).attr("id");
+    	setPipe(id);
+  	});
+
+	$("#clear-track").click(function(event) {
+    	event.preventDefault();
+
+    	grid.clear();
+    	draw();
+  	});
 }
 
 function draw() {
@@ -49,7 +63,16 @@ function onGridClicked(event) {
 	var column = Math.floor(mouseX / PIPE_SIZE);
 	var row = Math.floor(mouseY / PIPE_SIZE);
 
-	createPipeAt(column, row);
+	var selectedPipe = grid.getPipeAt(column, row);
+
+  	if (selectedPipe) {
+    	selectedPipe.rotation += 90;
+
+    	draw();
+
+  	} else {
+    	createPipeAt(column, row);
+  	}
 }
 
 function clearCanvas() {
@@ -58,11 +81,33 @@ function clearCanvas() {
 }
 
 function createPipeAt(column, row) {
+	if (!selectedPipeClass) return;
 	
-	var pipe = new SPipe();
+	var pipe = new selectedPipeClass();
 	pipe.column = column;
 	pipe.row = row;
 
 
 	grid.addPipe(pipe, context);
+}
+
+function setPipe(buttonID) {
+
+  if (currentButton) {
+    currentButton.removeAttr("disabled");
+  }
+
+  currentButton = $("#" + buttonID);
+  currentButton.attr("disabled", "disabled");
+
+  switch (buttonID) {
+
+    case "straight-pipe": 
+      selectedPipeClass = Straight;    
+    break;
+
+    case "curved-pipe":
+      selectedPipeClass = Curved;
+    break;
+  }
 }
