@@ -1,0 +1,27 @@
+Straight:
+	n!=-1&&s==-1?s=n:s=-1
+	s!=-1&&n==-1?n=s:n=-1
+
+NOT:
+	n==0&&s==-1?s=1:s=-1
+	n==1&&s==-1?s=0:s=-1
+	s==0&&n==-1?n=1:n=-1
+	s==1&&n==-1?n=0:n=-1
+
+AND:
+	//Entradas a ambos lados
+	e==-1||w==-1?n=-1:n=e&&w
+
+	//Entradas a 90º
+	e==-1||s==-1?n=-1:n=e&&s
+
+	w==-1||s==-1?n=-1:n=w&&s
+
+OR:
+	//Entradas a ambos lados
+	e==-1||w==-1?n=-1:n=e||w
+
+	//Entradas a 90º
+	e==-1||s==-1?n=-1:n=e||s
+
+	w==-1||s==-1?n=-1:n=w||s
