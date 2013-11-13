@@ -12,19 +12,28 @@
       <canvas id="grid"></canvas>
 
       <form>
-        <button id="clear-level">Clear</button>
-        <button id="save-level">Save</button>
+        <button id="clear-level">Nuevo</button>
+        <button id="save-level">Guardar</button>
         
         <input id="level-name" type="text" placeholder="Nombre del nivel"/>
       </form>
     </section>
 
-    <section id="pipes-container">
-      <h1>Tuberías</h1>
-      <form>
-        <button id="straight-pipe">Recta</button>
-        <button id="curved-pipe">Curva</button>
-      </form>
+    <section id="buttons-containter">
+      <section id="pipes-container">
+        <h1>Tuberías</h1>
+        <form>
+          <button id="straight-pipe">Recta</button>
+          <button id="curved-pipe">Curva</button>
+        </form>
+      </section>
+      <br>
+      <section id="modifications-container">
+        <h1>Modificaciones</h1>
+        <form>
+          <button id="delete-pipe">Borrar</button>
+        </form>
+      </section>
     </section>
 
     <script src="javascripts/jquery.js"></script>

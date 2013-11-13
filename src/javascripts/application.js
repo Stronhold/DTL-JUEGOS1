@@ -45,6 +45,11 @@ function initUI() {
     	grid.clear();
     	draw();
   	});
+  $("#modifications-container button").click(function(event) {
+      event.preventDefault();
+      var id = $(this).attr("id");
+      setButton(id);
+    });
 }
 
 function draw() {
@@ -65,7 +70,12 @@ function onGridClicked(event) {
 
 	var selectedPipe = grid.getPipeAt(column, row);
 
-  	if (selectedPipe) {
+  	if (currentButton.attr("id") == "delete-pipe") {
+      grid.deletePipeAt(column, row);
+
+      draw();
+
+    } else if (selectedPipe) {
     	selectedPipe.rotation += 90;
 
     	draw();
@@ -93,12 +103,7 @@ function createPipeAt(column, row) {
 
 function setPipe(buttonID) {
 
-  if (currentButton) {
-    currentButton.removeAttr("disabled");
-  }
-
-  currentButton = $("#" + buttonID);
-  currentButton.attr("disabled", "disabled");
+  setButton(buttonID);
 
   switch (buttonID) {
 
@@ -110,4 +115,12 @@ function setPipe(buttonID) {
       selectedPipeClass = Curved;
     break;
   }
+}
+
+function setButton(buttonID) {
+  if (currentButton) {
+    currentButton.removeAttr("disabled");
+  }
+  currentButton = $("#" + buttonID);
+  currentButton.attr("disabled", "disabled");
 }

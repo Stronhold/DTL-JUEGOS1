@@ -30,7 +30,7 @@ Grid.prototype.drawGrid = function(context) {
 }
 
 Grid.prototype.clear = function() {
-  this.bricks = [];
+  this.pipes = [];
 }
 
 Grid.prototype.draw = function(context) {
@@ -56,4 +56,12 @@ Grid.prototype.getPipeAt = function(column, row) {
   }
 
   return null;
+}
+
+Grid.prototype.deletePipeAt = function(column, row) {
+  for (var i = 0; i < this.pipes.length; i++) {
+    if (this.pipes[i].column === column && this.pipes[i].row === row) {
+      this.pipes.splice(i,1);
+    }
+  }
 }
