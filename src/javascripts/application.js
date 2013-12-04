@@ -21,7 +21,7 @@ var tileset = new Image();
 tileset.src = "res/tileset.png";
 
 $(document).ready(function() {
-	canvas = document.getElementById('grid');
+	canvas = $('.editor canvas')[0];
 	context = canvas.getContext('2d');
 
 	grid = new Grid(gridWidth, gridHeight, PIPE_SIZE);
@@ -29,39 +29,44 @@ $(document).ready(function() {
 	draw();
 });
 
-function initUI() {
+function initUI()
+{
 	$(canvas).click(onGridClicked);
 
-	$("#pipes-container button").click(function(event) {
-    	event.preventDefault();
+	$(".pipes button").click(function(event)
+	{
+		event.preventDefault();
 
-    	var id = $(this).attr("id");
-    	setPipe(id);
-  	});
+		var id = $(this).attr("id");
+		setPipe(id);
+	});
 
-	$("#clear-track").click(function(event) {
-    	event.preventDefault();
+	$("#clear-level").click(function(event)
+	{
+		event.preventDefault();
 
-    	grid.clear();
-    	draw();
-  	});
-  $("#modifications-container button").click(function(event) {
-      event.preventDefault();
-      var id = $(this).attr("id");
-      setButton(id);
-    });
+		grid.clear();
+		draw();
+	});
+
+	$(".tools button").click(function(event)
+	{
+		event.preventDefault();
+
+		var id = $(this).attr("id");
+		setButton(id);
+	});
 }
 
-function draw() {
+function draw()
+{
 	clearCanvas();
-
 	context.translate(0.5, 0.5);
-
 	grid.draw(context);
 }
 
-function onGridClicked(event) {
-
+function onGridClicked(event)
+{
 	var mouseX = event.offsetX || event.layerX;
 	var mouseY = event.offsetY || event.layerY;
 
@@ -70,57 +75,59 @@ function onGridClicked(event) {
 
 	var selectedPipe = grid.getPipeAt(column, row);
 
-  	if (currentButton.attr("id") == "delete-pipe") {
-      grid.deletePipeAt(column, row);
-
-      draw();
-
-    } else if (selectedPipe) {
-    	selectedPipe.rotation += 90;
-
-    	draw();
-
-  	} else {
-    	createPipeAt(column, row);
-  	}
+	if (currentButton.attr("id") === "delete-pipe")
+	{
+	  grid.deletePipeAt(column, row);
+	  draw();
+	}
+	else if (selectedPipe)
+	{
+		selectedPipe.rotation += 90;
+		draw();
+	}
+	else
+	{
+		createPipeAt(column, row);
+	}
 }
 
-function clearCanvas() {
+function clearCanvas()
+{
 	canvas.width = canvasWidth;
 	canvas.height = canvasHeight;
 }
 
-function createPipeAt(column, row) {
-	if (!selectedPipeClass) return;
-	
+function createPipeAt(column, row)
+{
+	if ( ! selectedPipeClass) return;
+
 	var pipe = new selectedPipeClass();
 	pipe.column = column;
 	pipe.row = row;
 
-
 	grid.addPipe(pipe, context);
 }
 
-function setPipe(buttonID) {
+function setPipe(buttonID)
+{
+	setButton(buttonID);
 
-  setButton(buttonID);
-
-  switch (buttonID) {
-
-    case "straight-pipe": 
-      selectedPipeClass = Straight;    
-    break;
-
-    case "curved-pipe":
-      selectedPipeClass = Curved;
-    break;
-  }
+	switch (buttonID)
+	{
+		case "straight-pipe":
+			selectedPipeClass = Straight;
+		break;
+		case "curved-pipe":
+			selectedPipeClass = Curved;
+	}
 }
 
-function setButton(buttonID) {
-  if (currentButton) {
-    currentButton.removeAttr("disabled");
-  }
-  currentButton = $("#" + buttonID);
-  currentButton.attr("disabled", "disabled");
+function setButton(buttonID)
+{
+	if (currentButton)
+	{
+		currentButton.removeAttr("disabled");
+	}
+	currentButton = $("#" + buttonID);
+	currentButton.attr("disabled", "disabled");
 }

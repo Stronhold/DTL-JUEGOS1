@@ -1,19 +1,22 @@
-body {
-	font-family: Helvetica, Arial, san-serif;+
+h1
+{
+	font-family: sans-serif;
+	text-align: center;
 }
 
-section#grid-container {
-	width: 750px;
-	margin-right: 10px;
-	float: left;
+.editor
+{
+	text-align: center;
+}
+.editor canvas
+{
+	display: inline-block;
+	vertical-align: top;
 }
 
-section#buttons-container {
-	width: 100px;
-	margin-right: 50px;
-	float: left;
-}
-
-button#save-level, input#level-name {
-	float: right;
+.editor .toolwrapper
+{
+	margin-left: 2em;
+	display: inline-block;
+	vertical-align: top;
 }

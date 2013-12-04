@@ -1,46 +1,46 @@
-<!DOCTYPE html> 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Crea, guarda y carga niveles</title>
-    <link rel="stylesheet" href="stylesheets/style.css">
-  </head>
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Editor de niveles</title>
+		<link rel="stylesheet" href="stylesheets/style.css">
+	</head>
+	<body>
+		<h1>Editor de niveles</h1>
 
-  <body>
+		<section class="editor">
+			<canvas></canvas>
 
-    <section id="grid-container">
-      <canvas id="grid"></canvas>
+			<div class="toolwrapper">
+				<section class="pipes">
+					<h2>Tuberías</h2>
 
-      <form>
-        <button id="clear-level">Nuevo</button>
-        <button id="save-level">Guardar</button>
-        
-        <input id="level-name" type="text" placeholder="Nombre del nivel"/>
-      </form>
-    </section>
+					<button id="straight-pipe">Recta</button>
+					<button id="curved-pipe">Curva</button>
+				</section>
 
-    <section id="buttons-containter">
-      <section id="pipes-container">
-        <h1>Tuberías</h1>
-        <form>
-          <button id="straight-pipe">Recta</button>
-          <button id="curved-pipe">Curva</button>
-        </form>
-      </section>
-      <br>
-      <section id="modifications-container">
-        <h1>Modificaciones</h1>
-        <form>
-          <button id="delete-pipe">Borrar</button>
-        </form>
-      </section>
-    </section>
+				<section class="tools">
+					<h2>Modificaciones</h2>
 
-    <script src="javascripts/jquery.js"></script>
-    <script src="javascripts/grid.js"></script>
-    <script src="javascripts/application.js"></script>
-    <script src="javascripts/pipes/straight.js"></script>
-    <script src="javascripts/pipes/curved.js"></script>
+					<button id="delete-pipe">Borrar</button>
+				</section>
 
-  </body>
+				<section class="save">
+					<h2>Archivo</h2>
+					<button id="clear-level">Nuevo</button>
+
+					<br>
+
+					<input name="level-name" type="text" placeholder="Nombre del nivel">
+					<button id="save-level">Guardar</button>
+				</section>
+			<div>
+		</section>
+
+		<script src="javascripts/jquery.js"></script>
+		<script src="javascripts/grid.js"></script>
+		<script src="javascripts/application.js"></script>
+		<script src="javascripts/pipes/straight.js"></script>
+		<script src="javascripts/pipes/curved.js"></script>
+	</body>
 </html>
