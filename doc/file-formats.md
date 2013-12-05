@@ -30,12 +30,12 @@ Los sprites serán un array de este tipo de objetos.
 Los niveles tendrán un archivo para cada uno, y serán un objeto JSON con la siguiente estructura:
 
 	{
-		w: 2,
-		h: 2,
-		data:
+		"w": 2,
+		"h": 2,
+		"data":
 		{
 			{{"id1", 90}, {"id2", 0}},
-			{{"id2", 270}, {"id3, 90}}
+			{{"id2", 270}, {"id3", 90}}
 		}
 	}
 

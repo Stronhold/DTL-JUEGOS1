@@ -1,15 +1,14 @@
-var Curved = function() {
-
+var Curved = function()
+{
 	this.row = 0;
 	this.column = 0;
 	this.type = "Curved";
 	this.rotation = 0;
 	this.img = tileset;
-    
 }
 
-Curved.prototype.draw = function(context) {
-
+Curved.prototype.draw = function(context)
+{
 	context.save();
 
 	context.translate(this.column * PIPE_SIZE, this.row * PIPE_SIZE);
@@ -21,5 +20,4 @@ Curved.prototype.draw = function(context) {
 	context.drawImage(this.img, 165, 0, 165, 165, 0, 0, PIPE_SIZE, PIPE_SIZE);
 
 	context.restore();
-
 }

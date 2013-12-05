@@ -56,6 +56,13 @@ function initUI()
 		var id = $(this).attr("id");
 		setButton(id);
 	});
+
+	$("#save-level").click(function(event)
+	{
+	//	event.preventDefault();
+
+		save();
+	});
 }
 
 function draw()
@@ -128,6 +135,18 @@ function setButton(buttonID)
 	{
 		currentButton.removeAttr("disabled");
 	}
-	currentButton = $("#" + buttonID);
+	currentButton = $("#"+buttonID);
 	currentButton.attr("disabled", "disabled");
+}
+
+function save()
+{
+	for (var i = 0; i < grid.getWidth(); i++)
+	{
+		for (var h = 0; h < grid.getHeight(); h++)
+		{
+			var pipe = grid.getPipeAt(i, h);
+			//TODO
+		}
+	}
 }
